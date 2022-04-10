@@ -1,24 +1,21 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import jwt_decode from "jwt-decode";
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import Nav from '../Header';
+import {base_url} from "../../commons/utils";
+import bootbox from "bootbox";
 export default class adminLogin extends Component {
 
     adminData;
     constructor(props) {
-
         super(props);
-
         this.state = {
             username : '',
-
             password: '',
-
             rememberMe: false,
-
             errors: {}
-
         }
 
 
@@ -55,66 +52,61 @@ export default class adminLogin extends Component {
         localStorage.setItem('admin', JSON.stringify(this.state));
 
 
-        
+
 
             console.log(this.state);
 
-            var apiBaseUrl = "http://localhost:8080/api/account/authentication";
+        const apiBaseUrl = `${base_url()}/account/authentication`;
 
-            var data = {
+        const data = {
 
-                "username": this.state.username,
+            "username": this.state.username,
 
-                "password": this.state.password,
+            "password": this.state.password,
 
-                "rememberMe": this.state.rememberMe
+            "rememberMe": this.state.rememberMe
 
 
+        };
 
-            }
-
-            var headers = {
-
-                'Content-Type': 'application/json',
-                // 'Bearer ':`${token}`
-            }
-
-            console.log(data);
-
+        const headers = {
+            'Content-Type': 'application/json'
+        };
             axios.post(apiBaseUrl, data, { headers: headers }).then((response) =>{
-                console.log(response.data.token);
-                if(response.data.token && this.state.rememberMe){
-                    window.localStorage.setItem("token", response.data.token)
-                    window.location = "/adminDashboard";
+                const decoded_jwt = jwt_decode(response.data.token)
+                const roles = decoded_jwt.roles;
+                const role1 = roles[0]
+                const role2 = roles[1]
+                console.log(role1 + "" + role2)
+                if(role1 === "ROLE_ADMIN" || role2 === "ROLE_ADMIN"){
+                    if(response.data.token && this.state.rememberMe){
+                        window.localStorage.setItem("token", response.data.token)
+                        window.location = "/adminDashboard";
+                    }
+                    else if(response.data.token){
+                        window.sessionStorage.setItem("token", response.data.token)
+                        window.location = "/adminDashboard";
+                    }
+                }else{
+                    alert("You are not allowed to access this resource")
                 }
-                else if(response.data.token){
-                    window.sessionStorage.setItem("token", response.data.token)
-                    window.location = "/adminDashboard";
-                }
+
 
             }).catch(function (error) {
-
-                //console.log(error);
                 alert(error.response.data.message)
-
             });
 
-        
+
 
     }
 
 
     validateForm() {
-
         let errors = {};
-
         let formIsValid = true;
         if (!this.state.email) {
-
             formIsValid = false;
-
             errors["email"] = "*Please enter your email-ID.";
-
         }
 
         if (typeof this.state.email !== "undefined") {
@@ -298,7 +290,7 @@ export default class adminLogin extends Component {
     //     this.submitadminRegistrationForm = this.submitadminRegistrationForm.bind(this);
 
 
-        
+
 
     // }
 
@@ -445,7 +437,7 @@ export default class adminLogin extends Component {
 
     // }
 
-   
+
 
     // render() {
 

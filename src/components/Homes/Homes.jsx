@@ -20,10 +20,10 @@ const columns = [
     {
       title: 'Home Code',
       dataIndex: 'homeCode',
-       width: '10%',                                   
+       width: '10%',
       key: 'homeCode',
     },
-    
+
     {
         title: 'Home Number',
         dataIndex: 'homeNumber',
@@ -44,7 +44,7 @@ const columns = [
         key: 'district',
         width: '12%',
       },
-      
+
 
       {
         title: 'BuildingType',
@@ -69,7 +69,7 @@ const columns = [
 
 
   ];
-  
+
   const data = [
     {
       key: 1,
@@ -134,7 +134,7 @@ const columns = [
       address: 'Sidney No. 1 Lake Park',
     },
   ];
-  
+
   // rowSelection objects indicates the need for row selection
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
@@ -147,10 +147,10 @@ const columns = [
       console.log(selected, selectedRows, changeRows);
     },
   };
- 
 
-  
-  
+
+
+
 
   class Homes extends Component{
 
@@ -168,21 +168,19 @@ const columns = [
     componentDidMount(){
       this.getCurrentUserHomes();
     }
-  
-  
-    
+
+
+
     getCurrentUserHomes=()=>{
-     console.log("JDkcsjdksjndksjd skjd skdj "); 
-      var apiBaseUrl = "http://localhost:8080/api/home/getHomesWithCurrentUser";
-  
-      var token = window.localStorage.getItem("token");
-      console.log(token);
-  
+        const apiBaseUrl = "http://localhost:8080/api/home/getHomesWithCurrentUser";
+        const token = window.localStorage.getItem("token");
+        console.log(token);
+
       var headers = {
           //'Content-Type': 'application/json',
           'Authorization':`Bearer ${token}`
       }
-  
+
       axios.get(apiBaseUrl, { headers: headers }).then((response) =>{
           if(response&&response.data){
               console.log(response);
@@ -193,16 +191,16 @@ const columns = [
       }).catch(function (error) {
           console.log(error);
           alert(error)
-  
+
       });
   }
-  
 
-   
+
+
     render(){
         console.log(this.state.homes)
         return(
-           
+
         // function TreeData() {
         //     const [checkStrictly, setCheckStrictly] = React.useState(false);
         //     return (
@@ -210,28 +208,28 @@ const columns = [
         //     <Space align="center" style={{ marginBottom: 16 }}>
         //     CheckStrictly: <Switch checked={checkStrictly} onChange={setCheckStrictly} />
         //     </Space>
-        this.state.homes && 
- 
+        this.state.homes &&
+
         <Table
             columns={columns}
            // rowSelection={{ ...rowSelection, checkStrictly }}
             dataSource={this.state.homes}
-            
-  
+
+
             // dataSource={this.state.address}
-            
+
                 title={() => 'Your Home'}
             />
-        
+
         // </>
         );
     }
-     
+
 }
-  
+
 
     export default Homes
-    
+
 
 
 
@@ -285,8 +283,8 @@ const columns = [
 //             homes:[],
 //         }
 //     }
-    
-   
+
+
 //     componentDidUpdate(){
 
 //     }
@@ -325,7 +323,7 @@ const columns = [
 //         console.log("clicked")
 //     }
 
-    
+
 
 
 // render(){
@@ -335,7 +333,7 @@ const columns = [
 //             <Nav />
 //             <br />
 //             <h3 className="text-center mb-0  mt-0 ">Home</h3>
-           
+
 //             <div className="container  mb-0  mt-1">
 
 //                 <table className="table table-striped table-bordered table-hover ">
@@ -351,7 +349,7 @@ const columns = [
 //                         </tr>
 //                     </thead>
 //                     <tbody>
-                       
+
 
 // {
 //                         Array.isArray(this.state.homes)?this.state.homes.map((home, key)=>(
@@ -374,7 +372,7 @@ const columns = [
 // }
 
 
-    
+
 // }
 
 
@@ -382,5 +380,5 @@ const columns = [
 
 
 
-   
+
 

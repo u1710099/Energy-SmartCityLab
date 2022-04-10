@@ -12,10 +12,11 @@ function Header() {
     return (
         <div>
             <nav className="navbar navbar-expand-sm navbar-dark" style={{
-                backgroundColor: "#02B7B8",
-                fontSize: "30px", fontFamily: "Times New Roman, Times, Fantasy"
+                backgroundColor: "#324158",
+                fontSize: "30px",
+                fontFamily: "Arial"
             }}>
-                <div class="container-fluid">
+                <div className="container-fluid">
                     <a className="navbar-brand mb-0 h1" aria-current="page" href="#">Energy System</a>
                     <ul className="nav justify-content-end" >
 
@@ -29,7 +30,7 @@ function Header() {
                             <a className="navbar-brand" href="/contact"><HiPhone size={17} /> Contact Us</a>
                         </li>
                         <li className="nav-item" style={{position: 'relative'}}>
-                            
+
                             <a className="navbar-brand" href="#" onClick={() => setIsOpen(open => !open)}><BiLogInCircle size={17} /> Login</a>
                             {/* Dropdown */}
                             <div style={{position: 'absolute', top: '100%', left: 0, transform: `scaleY(${isOpen ? 1 : 0})`,transformOrigin: 'top', transition: '.3s'}} className="bg-white p-3">
@@ -37,8 +38,8 @@ function Header() {
                                 <Link to ="/adminLogin" className="d-block h6">Admin</Link>
 
                             </div>
-                          
-                            
+
+
                         </li>
                         <li className="nav-item">
                             <a className="navbar-brand" href="/faq" ><RiQuestionAnswerLine size={17} /> FAQ</a>

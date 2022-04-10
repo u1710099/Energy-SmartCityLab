@@ -7,17 +7,8 @@ import {
   Button,
   Input,
   Form,
-  InputNumber,
-  Alert,
-  DatePicker,
-  Ran,
+  InputNumber
 } from "antd";
-import { Card, Avatar } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
 import axios from "axios";
 
 
@@ -25,7 +16,7 @@ export default class EnergyMeter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      homeId: this.props.match.params.id,            
+      homeId: this.props.match.params.id,
       energy: {},
       energyconsuption: 0,
       btype:'',
@@ -64,7 +55,6 @@ export default class EnergyMeter extends Component {
           title: "Meter ID",
           dataIndex: "meterId",
           key: "meterId",
-          // render: (text) => <a>{text}</a>,
         },
         {
           title: "Card Number",
@@ -96,7 +86,7 @@ export default class EnergyMeter extends Component {
           key: "homeCode",
         },
 
-        
+
         {
           title: "Building Type",
           dataIndex: "buildingType",
@@ -105,13 +95,13 @@ export default class EnergyMeter extends Component {
 
         {
           title: "Month",
-    
+
           dataIndex: "month",
           key: "month",
         },
         {
           title: "Status",
-          
+
           dataIndex: "status",
           key: "status",
         },
@@ -204,7 +194,7 @@ export default class EnergyMeter extends Component {
 
   componentDidMount() {
     this.getEnergyByHome(this.state.homeId);
-    
+
   }
 
   componentDidUpdate(){
@@ -229,17 +219,17 @@ export default class EnergyMeter extends Component {
     axios
       .get(apiBaseUrl, { headers: headers })
       .then((response) => {
-        
+
         // console.log({ response });
 
         if (response && response.data) {
           // console.log("Response",response.data);
-          
+
           this.setState({
             energy: response.data,
-            
+
           });
-        
+
 
           let energyData =  {
             "meterId": this.state.energy.id,
@@ -305,7 +295,7 @@ export default class EnergyMeter extends Component {
                 "amountEnergyConsumption": values.AmountEnergyConsumption.AmountEnergyConsumption,
                 "sum": values.Sum.Sum,
 
-               
+
     }
 
     var token = window.localStorage.getItem("token");
@@ -329,15 +319,15 @@ export default class EnergyMeter extends Component {
           "month": this.state.energyMeterData[0].month,
           "status":"Paid"
         }
-    
-    
-    
+
+
+
         this.setState({ energyBillingDataResult: [billingDatas]})
       }
       alert("Payment successfully")
 
     }).catch((err)=> console.log(err.message))
-   
+
 
     this.setState({ visible: false, paymentStatus: "Paid" });
     var data = this.state.energyMeterData[0]
@@ -346,12 +336,12 @@ export default class EnergyMeter extends Component {
 
     // console.log("payment Status", this.state.paymentStatus)
 
-   
+
 
     console.log("Energy Billimng data result: ", this.state.energyBillingDataResult)
 
 
- 
+
 
 
   };
@@ -373,13 +363,13 @@ export default class EnergyMeter extends Component {
   };
 
 
-  
+
 
   render() {
 
- 
+
     return (
-     
+
       <React.Fragment>
         <Table
           columns={this.state.columns}
@@ -396,8 +386,8 @@ export default class EnergyMeter extends Component {
         />
 
         {/* <Billing /> */}
-        
-        
+
+
         <Modal
           className="energy-meter-modal"
           title="Please Enter Your Payment Info "
@@ -426,7 +416,7 @@ export default class EnergyMeter extends Component {
               >
                 <InputNumber />
               </Form.Item>
-{/*               
+{/*
               <Form.Item
                 name={["energyConsumption", "energyConsumption"]}
                 label="Energy Consumption"
@@ -441,7 +431,7 @@ export default class EnergyMeter extends Component {
                 <InputNumber />
               </Form.Item>
 
-{/*                   
+{/*
                <Form.Item
                 name={["cardNumber", "cardNumber"]}
                 label="Card Number"

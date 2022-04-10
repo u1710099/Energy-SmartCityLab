@@ -7,19 +7,12 @@ import Navbar from '../sidebar/Navbar';
 import classes from "./customer.module.css"
 import {Button} from "react-bootstrap";
 import '../../css/dashboard.css';
-// import '../../css/Cards.css';
+
 import img from '../../images/home1.jpg';
-import img2 from '../../images/home2.jpg';
-import img3 from '../../images/home3.jpg';
-import img4 from '../../images/home4.jpg';
 import img5 from '../../images/home5.jpg';
-import img6 from '../../images/home6.jpg';
 import img7 from '../../images/user.jpg';
-import CardItem from './CardItem';
 import {Col, Row} from "react-bootstrap";
 import { Card, Avatar } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import HomeCard from '../CustomerComponents/HomeCard';
 const { Meta } = Card;
 
 
@@ -32,7 +25,7 @@ export  class CustomerDashboard extends Component {
             homes:[],
         }
       }
-   
+
 
     handleClick() {
         console.log("clicked")
@@ -41,20 +34,20 @@ export  class CustomerDashboard extends Component {
     componentDidMount(){
         this.getCurrentUserHomes();
       }
-    
+
 
     getCurrentUserHomes=()=>{
-        
+
          var apiBaseUrl = "http://localhost:8080/api/home/getHomesWithCurrentUser";
-     
+
          var token = window.localStorage.getItem("token");
-        
-     
+
+
          var headers = {
              //'Content-Type': 'application/json',
              'Authorization':`Bearer ${token}`
          }
-     
+
          axios.get(apiBaseUrl, { headers: headers }).then((response) =>{
              if(response&&response.data){
                  console.log(response);
@@ -65,7 +58,7 @@ export  class CustomerDashboard extends Component {
          }).catch(function (error) {
              console.log(error);
              alert(error)
-     
+
          });
      }
 
@@ -83,13 +76,13 @@ export  class CustomerDashboard extends Component {
                     <h1> Home's Energy Board</h1>
                     <div className='cards__container'>
                         <div className='cards__wrapper'>
-                       
+
                        <Row>
-                         
+
                                 {
-                                    
+
                                     Array.isArray(this.state.homes)?this.state.homes.map((home, key)=>(
-                                        
+
                                         <Col key={key} className="p-3" md={6}>
                                         {/* <CardItem
                                             src={img}
@@ -108,7 +101,7 @@ export  class CustomerDashboard extends Component {
                                                     style={{ width: 727 }}
                                                     cover={
                                                     // <img src={img4}/>
-                                                    <Link to="homes"><img src={img5} className='cards__item__img'/></Link>                                     
+                                                    <Link to="homes"><img src={img5} className='cards__item__img'/></Link>
                                                     }
                                             // actions={[
                                             // <SettingOutlined key="setting" />,
@@ -123,32 +116,32 @@ export  class CustomerDashboard extends Component {
                                             avatar={<Avatar src={img7} />}
                                             // title="Card title"
                                             description="Get To Know About Your Home Energy Billing Informations"
-                                    
+
                                             />
-                                            
+
                                         </Card>
                                         <div className="button_container">
-                                                                    
+
                                       <Link to={`energymeter/${home.id}`}><Button className={classes.button} variant="success">EnergyMeter</Button></Link>
-                                                                
+
                                     {/* <Link to={`bill/${home.id}`}><Button className={classes.button} variant="success">Billing</Button></Link> */}
-        
+
                                      <Link to="pay"><Button className={classes.button} variant="success">Payment History</Button></Link>
-                                                                
+
                                     </div>
                                     </div>
-                                                   
+
                                         </figure>
                                         </Link>
                                         </li>
-                                      
+
                                     </Col>
                                     )):''
-                                   
+
                                 }
-                       
+
                             </Row>
-                            
+
                         </div>
                     </div>
                 </div>
