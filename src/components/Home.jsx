@@ -10,6 +10,7 @@ function Home() {
             <div style={{fontFamily: "Arial"}}>
                 <img src={Hom} width="100%" height="530px" className="home"></img>
 
+
                 <div className="content w-100" style={{
                     position: "absolute", bottom: "-4%", backgroundColor: "rgba(0, 0, 0,0.3)",
                     color: "#F8FBFA", padding: "20px", height: "87%"
