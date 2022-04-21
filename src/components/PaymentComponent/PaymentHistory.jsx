@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Nav from "../Navbar";
 import "../../css/buttons.css";
-import { Table, Tag, Space } from "antd";
+import { Table, Space } from "antd";
 
 const columns = [
   {

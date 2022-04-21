@@ -8,7 +8,7 @@ import BillService from '../../services/BillService';
 import axios from 'axios';
 import Nav from '../Navbar';
 
-import { Table,Tag,Space,Switch } from 'antd';
+import { Table,Space} from 'antd';
 
 
 
@@ -29,46 +29,42 @@ const columns = [
       dataIndex: 'energyConsumption',
       key: 'energyConsumption',
     },
-  
+
     {
       title: 'Amount Energy Consumption',
       dataIndex: 'amountEnergyConsumption',
       key: 'amountEnergyConsumption',
     },
-  
+
     {
       title: 'Month',
       key: 'tags',
-      dataIndex: 'tags',
-      key: 'month'
+      dataIndex: 'tags'
     },
   {
       title: 'Status',
       key: 'status',
-      dataIndex: 'status',
-      key: 'status'
-     
+      dataIndex: 'status'
+
   },
-  
+
   {
     title: 'Sum',
     key: 'sum',
-    dataIndex: 'sum',
-    key: 'sum'
-   
+    dataIndex: 'sum'
   },
-  
-  
-  
+
+
+
   {
     // title: 'Payment',
     // key: 'tags',
     // dataIndex: 'tags',
     // key: 'payment',
-    
-  
+
+
 //     render: tags => (
-      
+
 //       <>
 //         {tags.map(tag => {
 //           let color = tag.length > 5 ? 'geekblue' : 'green';
@@ -84,8 +80,8 @@ const columns = [
 //       </>
 //     ),
   },
-  
-  
+
+
 
     {
       title: 'Action',
@@ -98,11 +94,11 @@ const columns = [
       ),
     },
   ];
-  
-  
-  
+
+
+
   const data = [
-    
+
   ];
 
   // {
@@ -126,11 +122,11 @@ const columns = [
     //   address: 'Sidney No. 1 Lake Park',
     //  tags: ['cool', 'teacher'],
     // },
-  
-  
-  
-  
-  
+
+
+
+
+
   class ViewBillList  extends Component{
     constructor(props) {
       super(props);
@@ -142,31 +138,31 @@ const columns = [
         this.data = success.data
       })
     }
-    
+
     closePopup() {
       this.setState({ isOpen: false });
     }
-  
+
     showModal = () => {
       this.setState({
         visible: true,
       });
     };
-  
+
     handleOk = e => {
       console.log(e);
       this.setState({
         visible: false,
       });
     };
-  
+
     handleCancel = e => {
       console.log(e);
       this.setState({
         visible: false,
       });
     };
-  
+
     onFinish = (values) => {
       console.log(values);
     };
@@ -179,9 +175,9 @@ const columns = [
       },
     };
     /* eslint-disable no-template-curly-in-string */
-  
-    
-  
+
+
+
     componentDidMount() {
       this.getAllBill();
 
@@ -225,37 +221,37 @@ const columns = [
   }
   listBillings=[];
 
-  
-  
 
 
-  
+
+
+
     render(){
       return(
-       
+
     //     <Table
     //       columns={columns}
     //       dataSource={data}
     //       bordered
     //       title={() => 'BillList'}
-          
-          
+
+
     // />
     <Table
     columns={columns}
    // rowSelection={{ ...rowSelection, checkStrictly }}
     dataSource={this.state.billings}
-    
+
         title={() => 'BillList'}
     />
     )
-  
-    
-   
+
+
+
     }
   }
   export default ViewBillList
-  
+
 
 
 
@@ -440,6 +436,6 @@ const columns = [
 
 
 
-        
+
 //     }
 // }

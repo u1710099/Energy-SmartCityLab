@@ -4,8 +4,6 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './AdSidebarData';
 import './Navbar.css';
-import { Dropdown } from 'react-bootstrap';
-import { DropdownButton } from 'react-bootstrap';
 
 import { IconContext } from 'react-icons';
 
@@ -21,7 +19,7 @@ function Navbar() {
                     <Link to='#' className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
-                    
+
                     {/* <span className="name">Energy System</span>
                 <DropdownButton id="dropdown-basic-button" title="Dropdown button">
                 <Dropdown.Item href="#/action-1">Action</Dropdown.Item>

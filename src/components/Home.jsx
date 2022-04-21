@@ -16,8 +16,8 @@ function Home() {
                     color: "#F8FBFA", padding: "20px", height: "87%"
                 }}>
                     <div style={{position: "relative", top: "30%", textAlign: "center"}}>
-                        <h2><i> <b>WELCOME to Energy Electricity Billing System!  &nbsp; &nbsp; Start your journey with
-                            us...!</b></i></h2>
+                        <h2><b>WELCOME to Energy Electricity Billing System!</b></h2>
+                        <p>Start your journey with us...!</p>
                     </div>
                 </div>
             </div>
