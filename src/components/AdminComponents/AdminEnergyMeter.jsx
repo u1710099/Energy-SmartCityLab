@@ -295,7 +295,7 @@ class AdminEnergyMeter extends Component {
 
 
   getHomesList=()=>{
-    var apiBaseUrl = "http://localhost:8080/api/home/getAll";
+    var apiBaseUrl = "http://localhost:8080/api/home/getAllHomes";
 
     var token = window.localStorage.getItem("token");
     console.log(token);

@@ -39,6 +39,7 @@ import EnergyMeter from './components/EnergyMeter/EnergyMeter';
 //import { Payment } from './components/PaymentComponent/Payment';
 // import EnergyMeter from './components/EnergyMeter/EnergyMeter';
 import Homes from './components/Homes/Homes';
+import ViewRegisteredHomes from './components/Homes/ViewRegisteredHomes';
 import AdminEnergyMeter from './components/AdminComponents/AdminEnergyMeter';
 import ViewHomes from './components/Homes/ViewHomes';
 
@@ -77,7 +78,9 @@ class App extends React.Component {
           <Route path="/forgotPassword" component={ForgotPassword} />
           <Route path="/adminForgot" component={AdminForgot} />
           <Route path="/allPayment" component={ListPayment} />
-          <Route path="/adminChangePassword" component={AdminChange} />
+
+          
+          <Route path="/viewregisteredhomes" component={ViewRegisteredHomes} />
 
 
           {/* <Route path="/adminEnergyMeter" component={AdminEnergyMeter} /> */}

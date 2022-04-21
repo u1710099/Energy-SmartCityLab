@@ -104,7 +104,7 @@ const columns = [
     },
   ];
 
-class ViewHomes extends Component {
+class ViewRegisteredHomes extends Component {
 
   constructor(props) {
             super(props);
@@ -128,7 +128,7 @@ class ViewHomes extends Component {
     // }
 
     getHomes(){
-        var apiBaseUrl = "http://localhost:8080/api/home/getAllHomes";
+        var apiBaseUrl = "http://localhost:8080/api/home/getAllRegisteredHomesWithUser";
         var token = window.localStorage.getItem("token");
         console.log(token);
 
@@ -169,12 +169,12 @@ class ViewHomes extends Component {
        // rowSelection={{ ...rowSelection, checkStrictly }}
         dataSource={this.state.homes}
         
-            title={() => 'Homes'}
+            title={() => 'View Registered'}
         />
     );
   }
 }
-export default ViewHomes
+export default ViewRegisteredHomes
 
 
 

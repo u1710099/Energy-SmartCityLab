@@ -37,29 +37,29 @@ export const SidebarData = [
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
+  
   {
-    title: 'Change Password',
-    path: '/adminChangePassword',
+    title: 'Add Energy Meter',
+    path: '/adminEnergyMeter',
+    icon: <i class="fas fa-sign-out-alt"></i>,
+    cName: 'nav-text'
+  },
+  {
+    title: 'View Registered Homes',
+    path: '/viewregisteredhomes',
     icon:  <i class="fa fa-undo"></i>,
+    cName: 'nav-text'
+  },
+
+  {
+    title: 'View All Homes',
+    path: '/viewhome',
+    icon: <i class="fas fa-sign-out-alt"></i>,
     cName: 'nav-text'
   },
   {
     title: 'Logout',
     path: '/logout',
-    icon: <i class="fas fa-sign-out-alt"></i>,
-    cName: 'nav-text'
-  },
-
-  {
-    title: 'AddEnergyMeter',
-    path: '/adminEnergyMeter',
-    icon: <i class="fas fa-sign-out-alt"></i>,
-    cName: 'nav-text'
-  },
-
-  {
-    title: 'ViewHomes',
-    path: '/viewhome',
     icon: <i class="fas fa-sign-out-alt"></i>,
     cName: 'nav-text'
   },
