@@ -20,6 +20,7 @@ const columns = [
       title: 'Home Code',
       dataIndex: 'homeCode',
       key: 'homeCode',
+    
     },
 
     {
@@ -42,10 +43,17 @@ const columns = [
       },
 
 
+      // {
+      //   title: 'BuildingType',
+      //   dataIndex: 'buildingType',
+      //   key: 'buildingType',
+      // },
+
       {
         title: 'BuildingType',
         dataIndex: 'buildingType',
-        key: 'buildingType',
+        key: 'age',
+        width: '12%',
       },
 
     // {
@@ -110,11 +118,11 @@ class ViewHomes extends Component {
             super(props);
             this.state = {
                  address: '',
-                costumer: null,
-                homes:[],
+                 costumer: null,
+                 homes:[],
             }
         }
-      // }
+       
     componentDidMount() {
         this.getHomes();
 
@@ -158,10 +166,6 @@ class ViewHomes extends Component {
     }
     listHomes=[];
     
-
-
-
-
   render() {
     return (
         <Table
@@ -175,8 +179,6 @@ class ViewHomes extends Component {
   }
 }
 export default ViewHomes
-
-
 
 
 

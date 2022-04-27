@@ -5,12 +5,7 @@ import HomeService from '../../services/HomeService';
 import { Table, Switch, Space,} from 'antd';
 
 const columns = [
-    // {
-    //   title: '№',
-    //   dataIndex: 'n',
-    //   key: 'n',
-    //   width: '12%',
-    // },
+   
     {
       title: 'Card Number',
       dataIndex: 'cardNumber',
@@ -201,13 +196,7 @@ const columns = [
         console.log(this.state.homes)
         return(
 
-        // function TreeData() {
-        //     const [checkStrictly, setCheckStrictly] = React.useState(false);
-        //     return (
-        // <>
-        //     <Space align="center" style={{ marginBottom: 16 }}>
-        //     CheckStrictly: <Switch checked={checkStrictly} onChange={setCheckStrictly} />
-        //     </Space>
+      
         this.state.homes &&
 
         <Table
